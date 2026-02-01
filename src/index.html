@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaseXXX Pro - Ultimate Encoder/Decoder</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="background-globes">
+        <div class="globe g1"></div>
+        <div class="globe g2"></div>
+        <div class="globe g3"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="app-container">
+        <!-- Header -->
+        <header class="glass-header">
+            <div class="brand">
+                <i data-lucide="cpu" class="logo-icon"></i>
+                <h1>BaseXXX <span class="pro-badge">Pro</span></h1>
+            </div>
+            <div class="header-actions">
+                <a href="#" class="github-link"><i data-lucide="github"></i></a>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Input Section -->
+            <section class="input-section glass-panel">
+                <div class="section-header">
+                    <h2>Input</h2>
+                    <div class="controls">
+                         <button id="customize-btn" class="icon-text-btn glass-btn" title="Select active encoders">
+                            <i data-lucide="sliders-horizontal"></i>
+                            <span>Customize</span>
+                        </button>
+                        <div class="divider-vertical"></div>
+                        <button id="mode-toggle" class="mode-btn encode active">
+                            <span class="label">Encode</span>
+                            <span class="label">Decode</span>
+                            <div class="slider"></div>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Settings Panel (Hidden by default) -->
+                <div id="settings-panel" class="settings-panel hidden">
+                    <h3>Active Formats</h3>
+                    <div class="toggles-grid">
+                        <label class="toggle-item"><input type="checkbox" checked value="base10"> Base10</label>
+                        <label class="toggle-item"><input type="checkbox" checked value="base16"> Base16</label>
+                        <label class="toggle-item"><input type="checkbox" checked value="base26"> Base26</label>
+                        <label class="toggle-item"><input type="checkbox" checked value="base36"> Base36</label>
+                        <label class="toggle-item"><input type="checkbox" checked value="base52"> Base52</label>
+                        <label class="toggle-item"><input type="checkbox" checked value="base62"> Base62</label>
+                        <label class="toggle-item"><input type="checkbox" checked value="base64"> Base64</label>
+                        <label class="toggle-item"><input type="checkbox" checked value="base85"> Base85</label>
+                        <label class="toggle-item"><input type="checkbox" checked value="base94"> Base94</label>
+                        <label class="toggle-item"><input type="checkbox" checked value="chinese1"> BaseCN-Core</label>
+                        <label class="toggle-item"><input type="checkbox" checked value="chinese2"> BaseCN-Full</label>
+                    </div>
+                </div>
+
+                <textarea id="input-text" placeholder="Type or paste your content here..."></textarea>
+                <div class="input-footer">
+                    <span id="char-count">0 chars</span>
+                    <div class="actions">
+                        <button id="clear-btn" class="icon-btn" title="Clear"><i data-lucide="trash-2"></i></button>
+                        <button id="files-btn" class="icon-btn" title="Upload File (Coming Soon)"><i data-lucide="upload"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Output Section -->
+            <section class="output-grid">
+                <!-- Base10 -->
+                <div class="output-card glass-panel" data-base-type="base10">
+                    <div class="card-header">
+                        <h3>Base10 <span class="badge">Decimal</span></h3>
+                        <button class="copy-btn" data-target="out-base10"><i data-lucide="copy"></i></button>
+                    </div>
+                    <div class="card-body">
+                        <div class="code-block" id="out-base10"></div>
+                    </div>
+                </div>
+
+                <!-- Base16 -->
+                <div class="output-card glass-panel" data-base-type="base16" data-wide="true">
+                    <div class="card-header">
+                        <h3>Base16 <span class="badge">HEX</span></h3>
+                        <button class="copy-btn" data-target="out-base16"><i data-lucide="copy"></i></button>
+                    </div>
+                    <div class="card-body">
+                        <div class="code-block" id="out-base16"></div>
+                    </div>
+                </div>
+
+                <!-- Base26 -->
+                <div class="output-card glass-panel" data-base-type="base26">
+                    <div class="card-header">
+                        <h3>Base26 <span class="badge">A-Z</span></h3>
+                        <button class="copy-btn" data-target="out-base26"><i data-lucide="copy"></i></button>
+                    </div>
+                    <div class="card-body">
+                        <div class="code-block" id="out-base26"></div>
+                    </div>
+                </div>
+
+                <!-- Base36 -->
+                <div class="output-card glass-panel" data-base-type="base36">
+                    <div class="card-header">
+                        <h3>Base36 <span class="badge">0-Z</span></h3>
+                        <button class="copy-btn" data-target="out-base36"><i data-lucide="copy"></i></button>
+                    </div>
+                    <div class="card-body">
+                        <div class="code-block" id="out-base36"></div>
+                    </div>
+                </div>
+
+                <!-- Base52 -->
+                <div class="output-card glass-panel" data-base-type="base52">
+                    <div class="card-header">
+                        <h3>Base52 <span class="badge">a-zA-Z</span></h3>
+                        <button class="copy-btn" data-target="out-base52"><i data-lucide="copy"></i></button>
+                    </div>
+                    <div class="card-body">
+                        <div class="code-block" id="out-base52"></div>
+                    </div>
+                </div>
+
+                <!-- Base62 -->
+                <div class="output-card glass-panel" data-base-type="base62">
+                    <div class="card-header">
+                        <h3>Base62 <span class="badge">Standard</span></h3>
+                        <button class="copy-btn" data-target="out-base62"><i data-lucide="copy"></i></button>
+                    </div>
+                    <div class="card-body">
+                        <div class="code-block" id="out-base62"></div>
+                    </div>
+                </div>
+
+                <!-- Base64 -->
+                <div class="output-card glass-panel" data-base-type="base64" data-wide="true">
+                    <div class="card-header">
+                        <h3>Base64 <span class="badge">Web Standard</span></h3>
+                        <button class="copy-btn" data-target="out-base64"><i data-lucide="copy"></i></button>
+                    </div>
+                    <div class="card-body">
+                        <div class="code-block" id="out-base64"></div>
+                    </div>
+                </div>
+
+                <!-- Base85 -->
+                <div class="output-card glass-panel" data-base-type="base85">
+                    <div class="card-header">
+                        <h3>Base85 <span class="badge">Ascii85</span></h3>
+                        <button class="copy-btn" data-target="out-base85"><i data-lucide="copy"></i></button>
+                    </div>
+                    <div class="card-body">
+                        <div class="code-block" id="out-base85"></div>
+                    </div>
+                </div>
+
+                <!-- Base94 -->
+                <div class="output-card glass-panel" data-base-type="base94">
+                    <div class="card-header">
+                        <h3>Base94 <span class="badge">ASCII Printable</span></h3>
+                        <button class="copy-btn" data-target="out-base94"><i data-lucide="copy"></i></button>
+                    </div>
+                    <div class="card-body">
+                        <div class="code-block" id="out-base94"></div>
+                    </div>
+                </div>
+
+                 <!-- Custom 1 -->
+                 <div class="output-card glass-panel highlight-card" data-base-type="chinese1" data-wide="true">
+                    <div class="card-header">
+                        <h3>BaseCN-Common <span class="badge">Chinese Core</span></h3>
+                        <button class="copy-btn" data-target="out-chinese1"><i data-lucide="copy"></i></button>
+                    </div>
+                    <div class="card-body">
+                        <div class="code-block" id="out-chinese1"></div>
+                    </div>
+                </div>
+
+                 <!-- Custom 2 -->
+                 <div class="output-card glass-panel highlight-card" data-base-type="chinese2" data-wide="true">
+                    <div class="card-header">
+                        <h3>BaseCN-Extended <span class="badge">Chinese Full</span></h3>
+                        <button class="copy-btn" data-target="out-chinese2"><i data-lucide="copy"></i></button>
+                    </div>
+                    <div class="card-body">
+                        <div class="code-block" id="out-chinese2"></div>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // UI Logic
+        lucide.createIcons();
+
+        const inputEl = document.getElementById('input-text');
+        const clearBtn = document.getElementById('clear-btn');
+        const modeToggle = document.getElementById('mode-toggle');
+        const charCount = document.getElementById('char-count');
+        const copyBtns = document.querySelectorAll('.copy-btn');
+        
+        // Output IDs
+        const outputs = {
+            'base10': document.getElementById('out-base10'),
+            'base16': document.getElementById('out-base16'),
+            'base26': document.getElementById('out-base26'),
+            'base36': document.getElementById('out-base36'),
+            'base52': document.getElementById('out-base52'),
+            'base62': document.getElementById('out-base62'),
+            'base64': document.getElementById('out-base64'),
+            'base85': document.getElementById('out-base85'),
+            'base94': document.getElementById('out-base94'),
+            'chinese1': document.getElementById('out-chinese1'),
+            'chinese2': document.getElementById('out-chinese2')
+        };
+        
+        let isEncode = true;
+
+        const customizeBtn = document.getElementById('customize-btn');
+        const settingsPanel = document.getElementById('settings-panel');
+        const toggles = document.querySelectorAll('.toggle-item input[type="checkbox"]');
+
+        // Toggle Settings Panel
+        customizeBtn.addEventListener('click', () => {
+            settingsPanel.classList.toggle('hidden');
+            customizeBtn.classList.toggle('active');
+        });
+
+        // Initialize active formats map
+        const activeFormats = {};
+        toggles.forEach(toggle => {
+            activeFormats[toggle.value] = toggle.checked;
+            
+            toggle.addEventListener('change', (e) => {
+                const type = e.target.value;
+                const isChecked = e.target.checked;
+                activeFormats[type] = isChecked;
+                
+                // Show/Hide card immediately
+                const card = document.querySelector(`.output-card[data-base-type="${type}"]`);
+                if (card) {
+                    if (isChecked) {
+                        card.classList.remove('hidden');
+                        // Trigger update for this specific card if needed, or just update all
+                        // For simplicity, just update logic for displayed cards next update
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                }
+                updateAll();
+            });
+        });
+
+        // Mode Toggle
+        modeToggle.addEventListener('click', () => {
+            isEncode = !isEncode;
+            modeToggle.classList.toggle('encode', isEncode);
+            modeToggle.classList.toggle('decode', !isEncode);
+            updateAll();
+        });
+
+        // Live Update
+        inputEl.addEventListener('input', () => {
+            updateAll();
+        });
+
+        clearBtn.addEventListener('click', () => {
+            inputEl.value = '';
+            inputEl.focus();
+            updateAll();
+        });
+
+        function updateAll() {
+            const text = inputEl.value;
+            charCount.textContent = `${text.length} chars`;
+            
+            const mode = isEncode ? 'encode' : 'decode';
+            
+            // Loop through all outputs
+            for (const [type, el] of Object.entries(outputs)) {
+                // Optimization: Skip inactive formats
+                if (activeFormats[type] === false) continue;
+
+                const res = convert(type, mode, text);
+                el.textContent = res;
+                
+                // Add error styling if needed
+                if (res.startsWith('Error') || res === 'Unknown Type') {
+                     el.style.color = '#ef4444';
+                     el.style.opacity = '0.7';
+                } else {
+                     el.style.color = 'var(--text-color)';
+                     el.style.opacity = '1';
+                }
+            }
+        }
+        
+        // Copy Functionality
+        copyBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetId = btn.getAttribute('data-target');
+                const text = document.getElementById(targetId).textContent;
+                if (!text) return;
+                
+                navigator.clipboard.writeText(text).then(() => {
+                    const originalIcon = btn.innerHTML;
+                    btn.innerHTML = '<i data-lucide="check"></i>';
+                    lucide.createIcons();
+                    setTimeout(() => {
+                        btn.innerHTML = originalIcon;
+                        lucide.createIcons();
+                    }, 2000);
+                });
+            });
+        });
+
+    </script>
+</body>
+</html>
