@@ -1,6 +1,6 @@
 # BaseXXX Pro
 
-![License](https://img.shields.io/github/license/raineblog/base-code-extended) ![Status](https://img.shields.io/badge/status-active-brightgreen)
+![License](https://img.shields.io/github/license/RainPPR/base-code-extended) ![Status](https://img.shields.io/badge/status-active-brightgreen)
 
 **BaseXXX Pro** is a modern, high-performance web-based encoder and decoder utility. It is designed with a focus on aesthetics (Glassmorphism) and versatility, supporting a wide array of Base encoding formats ranging from standard Hex and Base64 to custom Chinese character encoding schemes.
 
@@ -47,7 +47,7 @@ You only need a modern web browser (Chrome, Firefox, Edge, Safari) to run this a
 1. **Clone the repository**:
 
     ```bash
-    git clone https://github.com/raineblog/base-code-extended.git
+    git clone https://github.com/RainPPR/base-code-extended.git
     cd base-code-extended
     ```
 
